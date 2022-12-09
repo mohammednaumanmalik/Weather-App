@@ -99,9 +99,7 @@ const Home = ({ datas }) => {
     });
   }
 
-  useEffect(() => {
-    userLocation();
-  });
+  useEffect(() => {});
 
   let _break = false;
 
