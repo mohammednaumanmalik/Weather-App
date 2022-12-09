@@ -1,0 +1,279 @@
+
+
+:root{
+  --section-overlay:rgba(0,0,0,0.7);
+  --background-overlay:rgba(0,0,0,0.2);
+  --data-overlay:rgba(0,0,0,0.5);
+}
+
+*{
+  margin: 0;
+  padding-right: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  box-sizing: border-box;
+}
+.app{
+  background-image: url("./image/weather.jpg");
+  width: 100%;
+  height: 200vh;
+ background-position: center;
+ background-size:cover;
+}
+.overlay{
+  width: 100%;
+  height: 200vh;
+  background-color: var(--background-overlay);
+}
+@media screen and (max-width:768px) {
+.overlay{
+  height: 150vh;
+}
+}
+.container{
+  max-width: 800px;
+  margin: auto;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 1rem;
+}
+.section{
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.4rem;
+  color: white;
+}
+.section__inputs, .section__temperature{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--section-overlay);
+  
+}
+.section__temperature{
+margin-top: 20px;
+}
+
+.section__inputs>input{
+  border: 0.8px solid white;
+  border-radius: 0.4rem;
+  background-color: transparent;
+  color: white;
+  padding: 0.5rem;
+  font-size: 20px;
+  font-weight: 200;
+}
+@media screen and (max-width:400px) {
+  .section__inputs>input{
+    border: 0.8px solid white;
+    border-radius: 0.4rem;
+    background-color: transparent;
+    color: white;
+    padding: 0.3rem;
+    font-size: 15px;
+    font-weight: 150;
+  }
+}
+@media screen and (max-width:600px) {
+  .section__inputs>input{
+    border: 0.8px solid white;
+    border-radius: 0.4rem;
+    background-color: transparent;
+    color: white;
+    padding: 0.3rem;
+    font-size: 17px;
+    font-weight: 150;
+  }
+}
+
+.section__inputs>input:focus{
+  outline: none;
+}
+.section__inputs>button{
+  padding: 10px 50px;
+  border: none;
+  border-radius: 00.4rem;
+  font-size: 15px;
+  font-weight: 500;
+  background-color:white;
+  color: black;
+
+}
+@media (max-width:700px){
+  .section__inputs>button{
+    width: 100px;
+
+    margin-left: 10px;
+    padding: 4px 5px;
+  }
+}
+.section__inputs>button:hover{
+  background-color:lightgray;
+}
+.icon{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+.icon>h3{
+  font-size: 15px;
+  font-weight: 200;
+text-transform:capitalize;
+}
+.temperature>h1{
+  font-size: 50px;
+}
+
+@media screen and (min-width:769px){
+.icon-api{
+  
+   font-size: 3.75em;
+   height: 5rem;
+}
+}
+@media screen and (max-width:768px){
+  .icon-api1{
+    width: px;
+   
+    font-size: 2em;
+    height: 2rem;
+
+  }
+}
+.data_name{
+  font-size:x-large;
+
+  font-family: 'Playfair Display', serif;
+}
+.data_description{
+  font-family: 'Playfair Display', serif;
+  font-size:medium;
+}
+.data_temp{
+
+  font-family: 'Zen Antique Soft', serif;
+
+
+}
+@media screen and (max-width:768px){
+  .rise_set{
+    font-size:smaller;
+      
+  }
+}
+@media screen and (max-width:768px){
+.data_description{
+  font-size:xx-small;
+}
+}
+@media screen and (max-width:768px){
+  .data_temp{
+    font-size:35px;
+
+  }
+}
+@media screen and (min-width:769px){
+  .data_temp{
+    font-size:50px;
+      
+  }
+}
+.rise_set{
+  font-family: 'Zen Antique Soft', serif;
+}
+.h2{
+  font-family: 'Zen Antique Soft', serif;
+}
+.small-data{ 
+  font-family:'Playfair Display', serif;
+}
+.card{
+
+}
+@media screen and (max-width:768px){
+  .forecast_dates{
+       font-size: small;
+      
+  }
+}
+@media screen and (max-width:768px){
+  .forecast_max{
+       font-size: 12px;
+      
+  }
+}
+
+@media screen and (max-width:768px){
+  .forecast_min{
+       font-size: 12px;
+      
+  }
+}
+
+.forecast_temp{
+  font-size:20px;
+  font-family: 'Zen Antique Soft', serif;
+
+ 
+}
+@media screen and (max-width:768px){
+ .forecast_temp{
+       font-size:17px;
+      
+
+      
+  }
+}
+
+@media screen and (max-width:768px){
+  .forecast_descriptions{
+       font-size: 7px;
+      
+  }
+}
+.forecast_max{
+  font-family: 'Sree Krushnadevaraya';
+}
+.forecast_min{
+  font-family: 'Sree Krushnadevaraya';
+}
+.forecast_descriptions{
+  font-family:'Playfair Display', serif;
+}
+.forecast_dates{
+  font-family:'Playfair Display', serif;
+}
+
+
+.forecast_cards{
+  background-color:none;
+  text-align: center;
+  border-right: 1px solid lightcoral;
+  height:250px;
+
+  margin-left:0px;
+}
+.section__forecast{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.1rem;
+
+ 
+
+}
+@media (max-width:768px) {
+  .section__forecast{
+    display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0rem;
+  
+
+    
+  }
+  
+}
