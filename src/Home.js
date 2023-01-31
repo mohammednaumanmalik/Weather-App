@@ -3,14 +3,14 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Button, Grid, Col, Row } from "react-bootstrap";
-import { WiSunset, WiDaySunnyOvercast, WiSunrise } from "react-icons/wi";
-import Container from "react-bootstrap/Container";
+// import { WiSunset, WiDaySunnyOvercast, WiSunrise } from "react-icons/wi";
+// import Container from "react-bootstrap/Container";
 // import weather from "./image/weather.jpg";
 import Descripions from "./Descripions";
 import moment from "moment";
 // import { getWeatherDataForLocation } from "../api";
 
-const Home = ({ datas }) => {
+const Home = () => {
   const [city, setCity] = useState("");
   const [data, setData] = useState({
     description: "",
@@ -31,12 +31,13 @@ const Home = ({ datas }) => {
   });
 
   const handleClick = (latitude, longitude) => {
+    localStorage.setItem("data", data.temp);
     axios
       .get(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&lat=${latitude}&lon=${longitude}&units=metric&appid=36e52581ea397ab58953ea3e14563aa7`
       )
       .then((response) => {
-        var datas = setData({
+        setData({
           description: response.data.weather[0].description,
           temp: response.data.main.temp,
           temp_max: response.data.main.temp_max,
@@ -59,6 +60,7 @@ const Home = ({ datas }) => {
         });
       });
   };
+
   const [forecast2, setForecast2] = useState();
   const [forecast, setForecast] = useState([{}]);
 
@@ -73,9 +75,13 @@ const Home = ({ datas }) => {
       })
       .then((result) => {
         setForecast(result);
+        // localStorage.setItem("Data", result.temp);
       });
   };
 
+  useEffect(() => {
+    handleClick2();
+  });
   const x = moment
     .utc(data.sunrise, "X")
     .add(data.timezone, "seconds")
@@ -99,13 +105,17 @@ const Home = ({ datas }) => {
     });
   }
 
-  useEffect(() => {});
-
   let _break = false;
 
   const breaker = () => {
     _break = true;
   };
+  function handleEnter(e) {
+    if (e.key === "Enter") {
+      handleClick();
+      handleClick2();
+    }
+  }
 
   return (
     <>
@@ -116,12 +126,13 @@ const Home = ({ datas }) => {
               <input
                 type="text"
                 name="city"
-                placeholder="Enetr the city......"
+                placeholder="Enter the city......"
                 value={city}
                 onChange={(e) => {
                   setCity(e.target.value);
                   setForecast2(e.target.value);
                 }}
+                onKeyDown={handleEnter}
                 required
               />
               <button
