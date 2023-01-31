@@ -31,7 +31,6 @@ const Home = () => {
   });
 
   const handleClick = (latitude, longitude) => {
-    localStorage.setItem("data", data.temp);
     axios
       .get(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&lat=${latitude}&lon=${longitude}&units=metric&appid=36e52581ea397ab58953ea3e14563aa7`
